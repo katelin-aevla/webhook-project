@@ -1,3 +1,6 @@
+// Create a place to store messages
+let receivedWebhooks = [];
+
 // Load the tools we need
 const express = require('express');
 const bodyParser = require('body-parser');
