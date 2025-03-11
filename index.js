@@ -46,3 +46,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Webhook receiver is listening on port ${PORT}`);
 });
+
+// An endpoint to view saved messages
+app.get('/messages', (req, res) => {
+  res.json(receivedWebhooks);
+});
