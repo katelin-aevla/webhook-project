@@ -22,6 +22,17 @@ app.post('/webhook', (req, res) => {
   // Print the message to your logs
   console.log('Received webhook data:');
   console.log(JSON.stringify(req.body, null, 2));
+
+  // Save the message
+receivedWebhooks.push({
+  timestamp: new Date(),
+  data: req.body
+});
+
+// Keep only the latest 100 messages
+if (receivedWebhooks.length > 100) {
+  receivedWebhooks.shift();
+}
   
   // Send back a success message
   res.status(200).send({
